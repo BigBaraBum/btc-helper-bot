@@ -14,22 +14,25 @@ const bublikId = "242711641";
 
 bot.start((ctx) => ctx.reply(`Добро пожаловать, ${ctx.from.first_name}! Отправь мне номер кошелька и я оповещу тебя когда зачислится`));
 bot.on("text", async (ctx) => {
-  if(ctx.from.id==adminId){
+  if (ctx.from.id == adminId) {
     //ctx.forwardMessage(bublikId)
-  }else{
-    ctx.forwardMessage(adminId)
+  } else {
+    ctx.forwardMessage(adminId);
   }
   console.log(ctx.message.text);
-  console.log(ctx.from)
+  console.log(ctx.from);
   if (ctx.message.text.match(/^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/)) {
     ctx.reply(` ${ctx.from.first_name}, я оповещу тебя когда транзакция на кошелек ${ctx.message.text} получит ${confirmationsToWait} подтверждений`);
     getWalletInfo(ctx);
   } else {
-    ctx.reply('Я не знаю такой команды :(')
+    ctx.reply("Я не знаю такой команды :(");
   }
 });
 
 bot.launch();
+app.get("/wallet:wallet", (req, res) => {
+  const { wallet } = req.params;
+});
 app.listen(PORT, () => {
   console.log("App listening");
 });
