@@ -1,0 +1,11 @@
+{
+  "name": "btc-helper-bot",
+  "version": "1.0.0",
+  "description": "Telegram btc helper bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikita Inkin",
+  "license": "ISC"
+}
